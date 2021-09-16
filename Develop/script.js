@@ -28,7 +28,12 @@ function writePassword() {
       lowerCase = confirm("Will the password include lower case letters?");
       upperCase = confirm("Will the password include upper case letters?");
       specialCharacters = confirm("will the password include special characters?");
-    }
+    };
+    //added if statement so that if nothing is selected alert is sent
+    if (!numbers && !lowerCase && !upperCase && !specialCharacters ){
+        alert("Must select at least 1 option.");
+    };
+
   }
 
 }
