@@ -15,9 +15,12 @@ function writePassword() {
       passwordLength = prompt("How long do you want your password? Please choose between 8 and 128");
     if (!passwordLength){
       alert("Sorry you must input a number!");
+      return;
 
-    } else if (passwordLength < 8 || passwordLength > 128){
+    } 
+    if (passwordLength < 8 || passwordLength > 128){
       passwordLength = alert("You must choose a number between 8 and 128!");
+      return;
     }
     //brings up confirm prompts on selection when number is chosen
     else if (passwordLength >7 && passwordLength <129){
@@ -27,6 +30,7 @@ function writePassword() {
       specialCharacters = confirm("will the password include special characters?");
     } else {
       alert("You must pick a number!");
+      return;
     };
     //added if statement so that if nothing is selected alert is sent
     if (!numbers && !lowerCase && !upperCase && !specialCharacters ){
@@ -56,16 +60,17 @@ function writePassword() {
       allCharacters=[...specialCharacters,...allCharacters];
       console.log(specialCharacters);
     }
-    var passwordq="";
+    //added this variable since other one was pulling from a global scope instead of local
+    var finalPassword="";
     //for state to randomize all characters selected
     for(i=0; i<passwordLength; i++) {
       var index = Math.floor(Math.random() * allCharacters.length);
       
-        passwordq += allCharacters[index];
+        finalPassword += allCharacters[index];
     }
 
 
-    return passwordq;
+    return finalPassword;
 
   }
     
