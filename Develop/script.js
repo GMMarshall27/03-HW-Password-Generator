@@ -35,6 +35,7 @@ function writePassword() {
     //added if statement so that if nothing is selected alert is sent
     if (!numbers && !lowerCase && !upperCase && !specialCharacters ){
         alert("Sorry, you must select at least 1 option.");
+        return;
     }
      //moved number varialbe into if statment and used spread syntax
     if (numbers){
@@ -68,14 +69,10 @@ function writePassword() {
       
         finalPassword += allCharacters[index];
     }
-
-
     return finalPassword;
 
   }
     
-  
-
 }
 
 // Add event listener to generate button
