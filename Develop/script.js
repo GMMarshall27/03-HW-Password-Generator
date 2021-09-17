@@ -19,6 +19,7 @@ function writePassword() {
     } else if (passwordLength < 8 || passwordLength > 128){
       passwordLength = alert("You must choose a number between 8 and 128!");
     }
+    //brings up confirm prompts on selection when number is chosen
     else if (passwordLength >7 && passwordLength <129){
       numbers = confirm("Will the password include numbers?");
       lowerCase = confirm("Will the password include lower case letters?");
