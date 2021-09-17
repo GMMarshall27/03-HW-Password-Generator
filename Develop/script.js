@@ -12,7 +12,7 @@ function writePassword() {
     //variable added for all of the characters when selected
     var allCharacters = [];
     //created prompt to chose password length   
-    passwordLength = prompt("How long do you want your password? Please choose between 8 and 128");
+      passwordLength = prompt("How long do you want your password? Please choose between 8 and 128");
     if (!passwordLength){
       alert("Sorry you must input a number!");
 
@@ -26,8 +26,6 @@ function writePassword() {
       specialCharacters = confirm("will the password include special characters?");
     } else {
       alert("You must pick a number!");
-
-      // console.log(numbers);
     };
     //added if statement so that if nothing is selected alert is sent
     if (!numbers && !lowerCase && !upperCase && !specialCharacters ){
@@ -37,33 +35,40 @@ function writePassword() {
     if (numbers){
       var numbers =["0","1","2","3","4","5","6","7","8","9"];
       allCharacters=[...numbers,...allCharacters]; 
+      console.log(numbers);
     }
     //moved lowerCase varialbe into if statment and used spread syntax
     if (lowerCase){
       var lowerCase = ["a", "b","c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m","n", "o", "p", "q", "r", "s", "t", "u", "v","w","x","y","z"];
       allCharacters=[...lowerCase,...allCharacters];
+      console.log(lowerCase);
     }
     //moved upperCase varialbe into if statment and used spread syntax
     if (upperCase){
       var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M" , "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
       allCharacters=[...upperCase,...allCharacters];
+      console.log(upperCase);
     }
     //moved specialCharacters varialbe into if statment and used spread syntax
     if (specialCharacters){
       var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*","’", "(", ")", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "~", "{","}","[","]"];
       allCharacters=[...specialCharacters,...allCharacters];
+      console.log(specialCharacters);
     }
+    var passwordq="";
     //for state to randomize all characters selected
     for(i=0; i<passwordLength; i++) {
       var index = Math.floor(Math.random() * allCharacters.length);
-       password += allCharacters[index];
+      
+        passwordq += allCharacters[index];
     }
-    
-//console.log(allCharacters);
 
-    return password;
-    
+
+    return passwordq;
+
   }
+    
+  
 
 }
 
