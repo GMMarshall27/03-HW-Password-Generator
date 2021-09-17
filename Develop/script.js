@@ -9,14 +9,15 @@ function writePassword() {
   passwordText.value = password;
 
   function generatePassword() {
-    //variable 
+    //variable added for all of the characters when selected
     var allCharacters = [];
     //created prompt to chose password length   
     passwordLength = prompt("How long do you want your password? Please choose between 8 and 128");
     if (!passwordLength){
       alert("Sorry you must input a number!");
+
     } else if (passwordLength < 8 || passwordLength > 128){
-      passwordLength = prompt("You must choose a number between 8 and 128!");
+      passwordLength = alert("You must choose a number between 8 and 128!");
     }
     else if (passwordLength >7 && passwordLength <129){
       numbers = confirm("Will the password include numbers?");
@@ -24,8 +25,9 @@ function writePassword() {
       upperCase = confirm("Will the password include upper case letters?");
       specialCharacters = confirm("will the password include special characters?");
     } else {
-      alert("You must pick a number!")
-      console.log(numbers);
+      alert("You must pick a number!");
+
+      // console.log(numbers);
     };
     //added if statement so that if nothing is selected alert is sent
     if (!numbers && !lowerCase && !upperCase && !specialCharacters ){
@@ -51,12 +53,13 @@ function writePassword() {
       var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*","’", "(", ")", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "~", "{","}","[","]"];
       allCharacters=[...specialCharacters,...allCharacters];
     }
+    //for state to randomize all characters selected
     for(i=0; i<passwordLength; i++) {
       var index = Math.floor(Math.random() * allCharacters.length);
        password += allCharacters[index];
     }
     
-console.log(allCharacters);
+//console.log(allCharacters);
 
     return password;
     
